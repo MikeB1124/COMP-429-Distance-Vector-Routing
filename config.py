@@ -6,7 +6,8 @@ var = dict(
         "numEdges": 0
     },
     primary = {
-        "primaryNode": {}
+        "primaryNode": {},
+        "packets": 0
     },
     servers = {
         "nodeList": []

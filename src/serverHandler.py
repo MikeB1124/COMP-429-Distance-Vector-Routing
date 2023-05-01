@@ -37,6 +37,7 @@ def runServer():
             jsonFormatMessageBody = messageBody.replace("'", '"')
             routingTable = json.loads(jsonFormatMessageBody)
             checkForRoutingTableUpdates(id, routingTable)
+            config.var["primary"]["packets"] = config.var["primary"]["packets"] + 1
         connectionSocket.close()
     # except:
     #     print("\n\nServer unable to receive messages")

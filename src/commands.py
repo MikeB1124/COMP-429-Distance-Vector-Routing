@@ -14,6 +14,13 @@ def help():
     print(config.var["primary"]["primaryNode"])
     print(config.var["servers"]["nodeList"])
     
+def packets():
+    packets = config.var["primary"]["packets"]
+    print("------------------------------")
+    print(f"Packets Recieved: {packets}")
+    print("------------------------------")
+    
+    
 def displayTable():
     primaryNode = config.var["primary"]["primaryNode"]
     nodeList = config.var["servers"]["nodeList"]

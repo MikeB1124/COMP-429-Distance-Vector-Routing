@@ -12,6 +12,8 @@ def runClient():
             help()
         elif (clientInput == "display"):
             displayTable()
+        elif (clientInput == "packets"):
+            packets()
         else:
             if(clientInput != ""):
                 print("Invalid option")
