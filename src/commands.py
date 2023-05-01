@@ -1,4 +1,5 @@
 from src.utils import *
+from src.clientMessages import *
 import config
 
 def help():
@@ -13,7 +14,11 @@ def help():
     )
     print(config.var["primary"]["primaryNode"])
     print(config.var["servers"]["nodeList"])
-    
+
+def step():
+    readyToReceiveMessage()
+
+
 def packets():
     packets = config.var["primary"]["packets"]
     print("------------------------------")
@@ -21,7 +26,7 @@ def packets():
     print("------------------------------")
     
     
-def displayTable():
+def display():
     primaryNode = config.var["primary"]["primaryNode"]
     nodeList = config.var["servers"]["nodeList"]
     table = []
