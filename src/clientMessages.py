@@ -5,7 +5,6 @@ import config
 def readyToReceiveMessage():
     primaryNode = config.var["primary"]["primaryNode"]
     nodeList = config.var["servers"]["nodeList"]
-    
     for node in nodeList:
         try:
             id = str(node["id"])
@@ -21,3 +20,26 @@ def readyToReceiveMessage():
                 clientSocket.send(message.encode())
         except:
             continue
+        
+
+def disableConnection(id):
+    primaryNode = config.var["primary"]["primaryNode"]
+    nodeList = config.var["servers"]["nodeList"]
+    ip = ""
+    port = 0
+    
+    for node in nodeList:
+        if node["id"] == int(id):
+            ip = node["ip"]
+            port = node["port"]
+            
+    primaryNode["cost"][id]["pathCost"] = "inf"
+    primaryNode["cost"][id]["nextHop"] = "-"
+    
+    try:
+        clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        clientSocket.connect((ip, int(port)))
+        message = f'Disable:{primaryNode["id"]}:{primaryNode["ip"]}:{primaryNode["port"]}:Disable connection'
+        clientSocket.send(message.encode())
+    except:
+        print(f'Server {id} not connected.')

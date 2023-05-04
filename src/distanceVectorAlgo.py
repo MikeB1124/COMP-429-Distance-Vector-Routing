@@ -9,11 +9,9 @@ def checkForRoutingTableUpdates(serverID, routingTable):
         if destination != str(primaryNode["id"]) and destination != serverID and primaryNode["cost"][destination]["pathCost"] == "inf" and routingTable[destination]["pathCost"] != "inf":
             primaryNode["cost"][destination]["pathCost"] = toNeighbor + int(routingTable[destination]["pathCost"])
             primaryNode["cost"][destination]["nextHop"] = serverID
-            print("Update made")  
         elif destination != str(primaryNode["id"]) and destination != serverID and routingTable[destination]["pathCost"] != "inf": 
             if(int(primaryNode["cost"][destination]["pathCost"]) > toNeighbor + int(routingTable[destination]["pathCost"])):
                 primaryNode["cost"][destination]["pathCost"] = toNeighbor + int(routingTable[destination]["pathCost"])
                 primaryNode["cost"][destination]["nextHop"] = serverID
-                print(f'{int(primaryNode["cost"][destination]["pathCost"])} > {toNeighbor + routingTable[destination]["pathCost"]}')
-                
-                
+        
+        config.var["primary"]["primaryNode"] = primaryNode  
