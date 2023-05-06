@@ -86,3 +86,5 @@ crash - Crash the node
 ### Chat Application Demo
 
 ##### You can find a brief application demo on youtube:
+
+###### https://youtu.be/WfQprvfdklQ
