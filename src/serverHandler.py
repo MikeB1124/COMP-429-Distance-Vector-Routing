@@ -42,7 +42,14 @@ def runServer():
         if action == "Disable":
             primaryNode["cost"][id]["pathCost"] = "inf"
             primaryNode["cost"][id]["nextHop"] = "-"
+            nodeList = config.var["servers"]["nodeList"]
+            
+            for node in nodeList:
+                if node["id"] == int(id):
+                    node["enabled"] = False
+            
             config.var["primary"]["primaryNode"] = primaryNode
+            config.var["servers"]["nodeList"] = nodeList
         connectionSocket.close()
     # except:
     #     print("\n\nServer unable to receive messages")

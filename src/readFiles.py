@@ -43,7 +43,7 @@ def readAllServersInTopology(filename, servers, primaryID):
                         "id": int(splitString[0]), 
                         "ip": splitString[1], 
                         "port": int(splitString[2]),
-                        "enabled": False,
+                        "enabled": 0,
                     })
     return {"nodeList": nodeList, "primary": primary}
 
